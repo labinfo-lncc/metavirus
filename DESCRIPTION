@@ -1,12 +1,24 @@
 Package: metavirus
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Title: metaVirus: an public api and integrative tool to get viruses data into R system
+Version: 0.99.0
+Authors@R: c(person(given = "Amanda",family = "Andrade", role = c("cre", "aut"), email = "aandradebio@gmail.com"),
+   	person(given = "Otavio",family = "Brustolini", role= "aut"),
+   	person(given = "Eduardo",family = "Wagner", role= "aut"),
+	person(given = "Ana",family = "Vasconcelos",role = c("aut", "ths")))
+Description: Metavirus aims to combine the three major virus data repositories (VirusHost, ViralZone and NCBI Refseq) into a R package for facilitating the application of the viruses descriptions, variants sequences and taxonomy data into the statistical environment of R. It is also developing a public api to explore the data integration mechanisms with phylogenetic, metagenome or machine learning approach.
+License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+LinkingTo: 
+    cpp11
+SystemRequirements: C++11
+VignetteBuilder: knitr
+Suggests: 
+    BiocStyle,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Depends: R(>= 4.2.0), utils
+biocViews: Software, StatisticalMethod, FeatureExtraction, Classification, GenomeWideAssociation, GUI  
+Config/testthat/edition: 3
