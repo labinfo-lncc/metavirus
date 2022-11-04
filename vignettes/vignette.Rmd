@@ -1,0 +1,151 @@
+---
+title: "metavirus: an public api and integrative tool to get viruses data into R system"
+author:
+- name: Amanda Araújo Serrão de Andrade
+  affiliation: National Laboratory for Scientific Computing, Bioinformatics Laboratory (LABINFO), Petrópolis, Rio de Janeiro, Brazil
+- name: Otávio Brustolini
+  affiliation: National Laboratory for Scientific Computing, Bioinformatics Laboratory (LABINFO), Petrópolis, Rio de Janeiro, Brazil
+- name: Eduardo Wagner
+  affiliation: National Laboratory for Scientific Computing, Bioinformatics Laboratory (LABINFO), Petrópolis, Rio de Janeiro, Brazil
+- name: Ana Tereza Ribeiro de Vasconcelos
+  affiliation: National Laboratory for Scientific Computing, Bioinformatics Laboratory (LABINFO), Petrópolis, Rio de Janeiro, Brazil
+  email: atrv@lncc.br
+package: metavirus
+output:
+  BiocStyle::html_document
+abstract: |
+  Description of your vignette
+vignette: |
+  %\VignetteIndexEntry{metavirus: an public api and integrative tool to get viruses data into R system}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[UTF-8]{inputenc}
+---
+
+\section{Background}
+
+metavirus aims to combine the three major virus data repositories (VirusHost, ViralZone, ICTV, NCBI Taxonomy and NCBI Refseq) into a R package for facilitating the application of the viruses descriptions, variants sequences and taxonomy data into the statistical environment of R. It is also developing a public API to explore the data integration mechanisms with phylogenetic, metagenome or machine learning approach.
+
+Falar sobre a importância de um pacote para obter e tratar dados virais em R.
+O que é uma API 
+Como vai funcionar dentro do pacote?
+
+\newpage
+
+\section{The metavirus package}
+
+\begin{figure*}
+\includegraphics[keepaspectratio,width=12cm]{\jobname-Fig1.png}
+\raggedright
+\caption{\label{fig:wide}Logo}
+\end{figure*}
+
+\subsection{Dependencies}
+
+The package only needs: 
+
+\R{} 4.2.0 or later.
+
+\subsection{Instalation}
+
+The user should install the package from the GitHub repository. It can be done by using the \CRANpkg{devtools} package.
+
+```{r, eval=FALSE}
+library(devtools)
+install_github("labinfo-lncc/metavirus", ref="main")
+```
+
+\subsection{Package structure}
+
+\begin{figure*}
+\includegraphics[keepaspectratio,width=12cm]{\jobname-Fig2.png}
+\raggedright
+\caption{\label{fig:wide}Workflow}
+\end{figure*}
+
+\subsubsection{Get virus data}
+
+The main functions to obtain from data repositories (VirusHost, ViralZone, ICTV, NCBI Taxonomy and NCBI Refseq) are:
+
+* GetTaxaID (keyword)
+* GetVirusStats (TaxaID)
+* GetHost (TaxaID)
+* GetVirus (TaxaID)
+* GetTax (TaxaID)
+* GetLineage (TaxaID)
+
+\subsubsubsection{GetTaxaID}
+
+Get virus taxaID information from keyword. This keyword can be the name of the virus, a part of its taxonomy (eg. flaviviridae to get taxaids from members of this family), or even the Baltimore classification (eg. dsDNA, to get taxaids for every virus with this genome type). 
+
+\subsubsubsection{GetVirusStats}
+
+\subsubsubsection{GetHost}
+
+\subsubsubsection{GetVirus}
+
+\subsubsubsection{GetTax}
+
+\subsubsubsection{GetLineage}
+
+\subsubsection{Retrive sequences from NCBI RefSeq}
+
+\subsubsubsection{GetSEQS}
+
+\subsubsection{Preprocessing}
+
+Handle FASTA files
+
+```{r, eval=TRUE}
+library(metavirus)
+dir <-system.file("extdata", package="metavirus")
+```
+
+\subsubsubsection{FASTA2DNAstring}
+
+```{r, eval=TRUE}
+seq <- FASTA2DNAstring(file.path(dir, "sequences.fasta"))
+```
+
+\subsubsubsection{SEQsStatsReport}
+
+```{r, eval=TRUE}
+subset <- SEQsStatsReport(seq)
+```
+
+\subsubsubsection{filterFASTAbyBase}
+
+```{r, eval=TRUE}
+subset <- filterFASTAbyBase(seq, "A", TRUE, 0.3)
+```
+
+\subsubsubsection{filterFASTAbyIUPAC}
+
+```{r, eval=TRUE}
+subset <- filterFASTAbyIUPAC(seq, TRUE, 0.3, FALSE)
+```
+
+\subsubsubsection{filterFASTAbyLength}
+
+```{r, eval=TRUE}
+subset <- filterFASTAbyLength(seq, 0, 1200)
+```
+
+\subsection{Applicability and pratical examples}
+
+\subsubsubsection{AlignmentSEQS}
+\subsubsubsection{MLclassificationSEQS}
+
+\subsubsection{Example 1: genome alignment}
+
+```{r, eval=FALSE}
+example
+```
+
+\subsubsection{Example 2: viral classification}
+
+\section{What to expect from newest versions}
+\section{SessionInfo}
+
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```

@@ -4,4 +4,3 @@ get_taxid <- function (name, type="keyword")
 {
 	cat (name)
 }
-

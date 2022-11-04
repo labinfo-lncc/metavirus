@@ -1,0 +1,11 @@
+# To cite package ‘metavirus’ in publications use:
+#   ANDRADE, A. A. S. (2022). metaVirus: an public api and integrative tool to get viruses data into R system. R package version 1.0.
+# A BibTeX entry for LaTeX users is
+#   @Manual{,
+#     title = {metaVirus: an public api and integrative tool to get viruses data into R system},
+#     author = {Amanda Araújo Serrão de Andrade, Otavio Jose Bernardes Brustolini, Eduardo Wagner, Ana Tereza Ribeiro Vasconcelos},
+#     year = {2022},
+#     note = {R package version 1.0},
+#   }
+#  ATTENTION: This citation information has been auto-generated from the package
+#  DESCRIPTION file and may need manual editing, see ‘help("citation")’.
